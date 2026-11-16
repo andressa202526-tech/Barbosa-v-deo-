@@ -1,105 +1,242 @@
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1">
+
+<title>Barbosa Vídeo | Story Maker</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f7f5f0;
+  color: #171b19;
+}
+
+.carregando {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 25px;
+}
+
+.erro {
+  max-width: 550px;
+  margin: auto;
+  line-height: 1.7;
+}
+</style>
+</head>
+
+<body>
+
+<div class="carregando" id="carregando">
+  <div>
+    <h2>BARBOSA VÍDEO</h2>
+    <p>Carregando o site...</p>
+  </div>
+</div>
+
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const nomeAntigo = "Sítio Vó Domingas e Vó Palmira";
-  const nomeNovo = "Sítio Vó Domingas";
+(async function () {
 
-  // Atualiza as referências ao sítio antigo.
-  document.querySelectorAll(
-    "a, h2, p, strong, option"
-  ).forEach(el => {
-    if (el.children.length === 0 &&
-        el.textContent.includes(nomeAntigo)) {
-      el.textContent = el.textContent.replaceAll(
-        nomeAntigo, nomeNovo
-      );
+  // Versão original, com fotos e design.
+  const original =
+    "https://raw.githubusercontent.com/" +
+    "andressa202526-tech/Barbosa-v-deo-/" +
+    "ed1dfbc91acad2cba195471412a7bfb645534f1a/" +
+    "index.html";
+
+  try {
+
+    const resposta = await fetch(original);
+
+    if (!resposta.ok) {
+      throw new Error("Arquivo original indisponível");
     }
-  });
 
-  const sitio = document.getElementById("sitio");
-  if (!sitio) return;
+    const html = await resposta.text();
 
-  // Mantém as cores e o estilo do site original.
-  sitio.innerHTML = `
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <div class="eyebrow">
-            Conheça esse espaço
+    const parser = new DOMParser();
+
+    const doc = parser.parseFromString(
+      html, "text/html"
+    );
+
+    // Mantém o visual e todas as fotos originais.
+    // Atualiza somente as referências ao sítio.
+
+    doc.querySelectorAll(
+      "h1,h2,h3,p,a,span,option"
+    ).forEach(elemento => {
+
+      if (elemento.children.length === 0) {
+        elemento.textContent =
+          elemento.textContent.replaceAll(
+            "Sítio Vó Domingas e Vó Palmira",
+            "Sítio Vó Domingas"
+          );
+      }
+
+    });
+
+    const sitio = doc.getElementById("sitio");
+
+    if (sitio) {
+
+      sitio.innerHTML = `
+        <div class="wrap">
+
+          <div class="section-head">
+            <div>
+              <div class="eyebrow">
+                Conheça o espaço
+              </div>
+
+              <h2>
+                Venha conhecer o
+                Sítio Vó Domingas
+              </h2>
+            </div>
           </div>
-          <h2>
-            Venha conhecer o
-            Sítio Vó Domingas
-          </h2>
+
+          <p style="
+            max-width:680px;
+            margin-bottom:30px;
+            line-height:1.8;
+          ">
+            Um cantinho especial em meio
+            à natureza, perfeito para
+            reunir a família, os amigos
+            e viver momentos inesquecíveis.
+          </p>
+
+          <div style="
+            background:#fffdf8;
+            border-radius:22px;
+            padding:28px;
+            margin-bottom:30px;
+          ">
+
+            <h3>🌿 Conheça nosso espaço</h3>
+
+            <p>
+              Confira as fotos e novidades
+              do Sítio Vó Domingas no
+              Instagram oficial.
+            </p>
+
+            <a
+              class="btn btn-light"
+              href="https://www.instagram.com/sitiovodomingas/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="margin-top:15px"
+            >
+              📸 Ver fotos no Instagram ↗
+            </a>
+
+          </div>
+
+          <div style="
+            background:#fffdf8;
+            border-radius:22px;
+            padding:28px;
+          ">
+
+            <h3>📍 Localização</h3>
+
+            <p>
+              <strong>Sítio Vó Domingas</strong>
+              <br>
+              Estrada Geral da Graciosa
+              <br>
+              Graciosa, Biguaçu - SC
+              <br>
+              CEP 88169-899
+            </p>
+
+            <iframe
+              title="Mapa do Sítio Vó Domingas"
+              src="https://maps.google.com/maps?q=Sitio%20Vo%20Domingas%20Graciosa%20Biguacu%20SC&z=15&output=embed"
+              width="100%"
+              height="320"
+              loading="lazy"
+              style="
+                border:0;
+                border-radius:16px;
+                margin:20px 0;
+              "
+            ></iframe>
+
+            <a
+              class="btn btn-light"
+              href="https://www.google.com/maps/search/?api=1&query=Sitio%20Vo%20Domingas%20Graciosa%20Biguacu%20SC"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              📍 Abrir GPS ↗
+            </a>
+
+          </div>
+
         </div>
-      </div>
+      `;
+    }
 
-      <p style="max-width:650px;margin-bottom:25px">
-        Um cantinho especial em meio à natureza,
-        para reunir a família, os amigos e
-        viver momentos inesquecíveis.
-      </p>
+    // Atualiza a opção do formulário.
+    const tipo = doc.getElementById("tipo");
 
-      <h3>Conheça o Sítio Vó Domingas</h3>
+    if (tipo) {
+      Array.from(tipo.options).forEach(opcao => {
+        opcao.textContent =
+          opcao.textContent.replaceAll(
+            "Sítio Vó Domingas e Vó Palmira",
+            "Sítio Vó Domingas"
+          );
 
-      <p>
-        Veja fotos reais e novidades do espaço
-        no Instagram oficial.
-      </p>
+        opcao.value = opcao.value.replaceAll(
+          "Sítio Vó Domingas e Vó Palmira",
+          "Sítio Vó Domingas"
+        );
+      });
+    }
 
-      <div style="display:flex;flex-wrap:wrap;
-        gap:12px;margin:25px 0">
+    // Exibe o site original atualizado.
+    document.open();
+    document.write(
+      "<!DOCTYPE html>\n" +
+      doc.documentElement.outerHTML
+    );
+    document.close();
 
-        <a class="btn btn-light"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.instagram.com/sitiovodomingas/">
-          📸 Ver fotos no Instagram ↗
-        </a>
+  } catch (erro) {
 
-        <a class="btn btn-outline"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.google.com/maps/search/?api=1&query=Sitio%20Vo%20Domingas%20Graciosa%20Biguacu%20SC">
-          📍 Abrir GPS ↗
-        </a>
-      </div>
-
-      <div style="margin-top:35px">
-        <h3>Onde fica?</h3>
+    document.getElementById(
+      "carregando"
+    ).innerHTML = `
+      <div class="erro">
+        <h2>Não foi possível carregar o site</h2>
         <p>
-          Estrada Geral da Graciosa<br>
-          Graciosa, Biguaçu - SC<br>
-          CEP 88169-899
+          O navegador não conseguiu acessar
+          o arquivo original no GitHub.
         </p>
-
-        <iframe
-          title="Mapa do Sítio Vó Domingas"
-          src="https://maps.google.com/maps?q=Sitio%20Vo%20Domingas%20Graciosa%20Biguacu%20SC&z=15&output=embed"
-          width="100%"
-          height="340"
-          loading="lazy"
-          style="border:0;border-radius:20px">
-        </iframe>
+        <a href="https://github.com/andressa202526-tech/Barbosa-v-deo-"
+           style="color:#365a40">
+          Abrir repositório no GitHub
+        </a>
       </div>
-    </div>
-  `;
+    `;
 
-  const opcao = document.querySelector(
-    '#tipo option[value*="Vó Palmira"]'
-  );
-  if (opcao) {
-    opcao.value = "Evento no Sítio Vó Domingas";
-    opcao.textContent = "Evento no Sítio Vó Domingas";
+    console.error(erro);
   }
 
-  const nota = document.getElementById(
-    "partnerOriginNote"
-  );
-  if (nota) {
-    nota.innerHTML =
-      'Você veio pela indicação do ' +
-      '<strong>Sítio Vó Domingas</strong>.';
-  }
-});
+})();
 </script>
+
+</body>
+</html>
