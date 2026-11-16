@@ -3,182 +3,253 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Barbosa Vídeo | Story Maker</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Barbosa Vídeo | Story Maker & Mobile Video Maker</title>
 
 <style>
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #faf8f5;
-  color: #292929;
+  background: #faf9f6;
+  color: #252525;
 }
 
 header {
-  background: #171717;
+  background: linear-gradient(130deg, #181818, #424039);
   color: white;
   text-align: center;
-  padding: 65px 20px;
+  padding: 85px 20px;
 }
 
 header h1 {
   font-size: 38px;
   letter-spacing: 3px;
-  margin: 0;
+  margin-bottom: 8px;
 }
 
 header p {
-  color: #ddd;
-  line-height: 1.6;
+  color: #e1e1df;
+  line-height: 1.7;
 }
 
 nav {
   background: white;
-  padding: 18px;
+  padding: 17px 10px;
   text-align: center;
   position: sticky;
   top: 0;
-  z-index: 10;
-  box-shadow: 0 2px 10px #00000012;
+  z-index: 5;
+  box-shadow: 0 2px 12px #00000012;
 }
 
 nav a {
-  color: #333;
+  color: #292929;
   text-decoration: none;
-  margin: 8px;
   font-size: 13px;
   font-weight: bold;
+  display: inline-block;
+  margin: 5px 9px;
 }
 
 section {
-  padding: 60px 20px;
+  padding: 65px 20px;
+}
+
+.container {
   max-width: 1050px;
   margin: auto;
 }
 
 h2 {
-  font-size: 29px;
-  margin-bottom: 15px;
+  font-size: 30px;
+  margin-top: 10px;
 }
 
-p { line-height: 1.7; }
+p {
+  line-height: 1.7;
+}
 
-.intro { text-align: center; }
+.centro {
+  text-align: center;
+}
 
-.intro p {
-  max-width: 650px;
-  margin: 20px auto;
+.subtitulo {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #54745c;
+  font-weight: bold;
+}
+
+.botao {
+  display: inline-block;
+  background: #252525;
+  color: white;
+  padding: 15px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 7px;
+  transition: .2s;
+}
+
+.botao:hover {
+  opacity: .85;
+  transform: translateY(-2px);
+}
+
+.verde {
+  background: #416a4c;
+}
+
+.botao-branco {
+  background: white;
+  color: #2b4231;
 }
 
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 20px;
+  gap: 18px;
   margin-top: 30px;
 }
 
 .card {
   background: white;
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 3px 15px #0000000a;
+  border-radius: 17px;
+  padding: 27px;
+  box-shadow: 0 3px 18px #0000000b;
 }
 
-.card h3 { margin-top: 0; }
-
-.botao {
-  display: inline-block;
-  padding: 14px 24px;
-  margin: 8px 5px;
-  border-radius: 30px;
-  background: #202020;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 14px;
+.card h3 {
+  margin-top: 0;
 }
 
-.botao.verde { background: #42634c; }
-
-.botao.claro {
-  background: white;
-  color: #273d2e;
-  border: 1px solid #c4d0c5;
-}
+/* SÍTIO VÓ DOMINGAS */
 
 .sitio {
-  background: #edf1e9;
-  max-width: 100%;
+  background: #eaf0e8;
 }
 
-.sitio-conteudo {
-  max-width: 1050px;
-  margin: auto;
-  text-align: center;
+.sitio h2 {
+  color: #2b4934;
 }
 
-.sitio h2 { color: #314b36; }
+.descricao {
+  max-width: 690px;
+  margin: 15px auto 28px;
+}
 
 .galeria {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
-  margin: 30px 0;
+  margin: 32px 0;
 }
 
 .foto {
-  width: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #dce5d9;
   aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border-radius: 13px;
-  background: #dae2d7;
 }
 
-.endereco {
-  padding: 20px;
-  background: #ffffffa8;
+.foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.foto:first-child {
+  grid-column: span 2;
+  grid-row: span 2;
+  aspect-ratio: auto;
+}
+
+.aviso {
+  color: #536555;
+  font-size: 13px;
+}
+
+.localizacao {
+  background: white;
+  border-radius: 20px;
+  padding: 27px 18px;
+  margin-top: 35px;
+  box-shadow: 0 3px 18px #00000009;
+}
+
+.mapa {
+  width: 100%;
+  max-width: 850px;
+  height: 330px;
+  border: 0;
   border-radius: 14px;
-  margin: 25px auto;
-  max-width: 650px;
+  margin-top: 15px;
 }
 
 .contato {
-  text-align: center;
+  background: #faf9f6;
 }
 
 footer {
-  background: #171717;
-  text-align: center;
+  background: #181818;
   color: white;
-  padding: 30px 15px;
+  text-align: center;
+  padding: 35px 18px;
 }
 
 footer p {
-  font-size: 13px;
   color: #ccc;
+  font-size: 13px;
 }
 
-@media(max-width: 600px) {
-  header h1 { font-size: 30px; }
-  h2 { font-size: 25px; }
-  .galeria { grid-template-columns: repeat(2, 1fr); }
-  .galeria img:first-child { grid-column: span 2; }
-  nav a { font-size: 12px; margin: 5px; }
+@media(max-width: 650px) {
+  header h1 {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 25px;
+  }
+
+  .galeria {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .foto:first-child {
+    grid-column: span 2;
+    grid-row: auto;
+    aspect-ratio: 16 / 10;
+  }
+
+  .mapa {
+    height: 280px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<header>
+<header id="inicio">
   <h1>BARBOSA VÍDEO</h1>
-  <p>Story Maker | Mobile Video Maker</p>
-  <p>Transformando momentos em histórias que merecem ser lembradas.</p>
-  <a class="botao claro" href="#contato">
+  <p>STORY MAKER | MOBILE VIDEO MAKER</p>
+  <p>
+    Transformando momentos especiais
+    em histórias que merecem ser lembradas.
+  </p>
+  <a class="botao botao-branco" href="#contato">
     Solicitar orçamento
   </a>
 </header>
@@ -190,147 +261,220 @@ footer p {
   <a href="#contato">Contato</a>
 </nav>
 
-<section class="intro" id="inicio">
-  <h2>Seu momento merece ser registrado!</h2>
-  <p>
-    Produção de vídeos e fotos com celular,
-    registrando eventos, marcas, empresas
-    e momentos especiais com criatividade,
-    atenção aos detalhes e autenticidade.
-  </p>
-</section>
+<section>
+  <div class="container centro">
 
-<section id="servicos">
-  <h2>Meus serviços</h2>
-  <p>Conteúdo criativo para diferentes momentos e negócios.</p>
+    <span class="subtitulo">
+      Produção de conteúdo mobile
+    </span>
 
-  <div class="cards">
+    <h2>Seu momento merece ser registrado!</h2>
 
-    <div class="card">
-      <h3>📱 Story Maker</h3>
-      <p>
-        Cobertura de eventos em tempo real,
-        com vídeos, fotos e stories.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>🎥 Mobile Video Maker</h3>
-      <p>
-        Captação e edição de vídeos criativos
-        com produção mobile.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>🎉 Eventos e festas</h3>
-      <p>
-        Aniversários, chás de bebê,
-        comemorações, encontros e eventos especiais.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>🏢 Empresas e negócios</h3>
-      <p>
-        Conteúdo para redes sociais,
-        divulgação de produtos,
-        serviços e estabelecimentos.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>🌿 Sítios e espaços de eventos</h3>
-      <p>
-        Vídeos e fotos para apresentar espaços,
-        ambientes e experiências.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>✂️ Edição de vídeos</h3>
-      <p>
-        Edição de Reels e vídeos verticais
-        para redes sociais.
-      </p>
-    </div>
+    <p class="descricao">
+      Vídeos, fotos e conteúdos criativos para
+      eventos, empresas, empreendedores,
+      celebrações e momentos especiais.
+      Tudo com um olhar atento aos detalhes.
+    </p>
 
   </div>
 </section>
 
-<div class="sitio" id="sitio">
-  <section class="sitio-conteudo">
+<section id="servicos">
+  <div class="container">
 
-    <p>🌿 CONHEÇA ESSE ESPAÇO</p>
+    <span class="subtitulo">O que eu faço</span>
+    <h2>Meus serviços</h2>
 
-    <h2>Venha conhecer o Sítio Vó Domingas</h2>
+    <div class="cards">
 
-    <p>
-      Um cantinho especial em meio à natureza,
-      perfeito para reunir pessoas e criar
-      momentos inesquecíveis.
+      <div class="card">
+        <h3>📱 Story Maker</h3>
+        <p>
+          Cobertura de eventos em tempo real,
+          com vídeos, fotos e stories.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🎥 Mobile Video Maker</h3>
+        <p>
+          Captação e edição de vídeos
+          produzidos com celular.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🎉 Festas e eventos</h3>
+        <p>
+          Aniversários, chás de bebê,
+          comemorações e momentos especiais.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🏢 Empresas</h3>
+        <p>
+          Divulgação de marcas, produtos,
+          estabelecimentos e serviços.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🌿 Espaços e sítios</h3>
+        <p>
+          Vídeos para apresentar ambientes
+          e divulgar espaços de eventos.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>✂️ Edição de Reels</h3>
+        <p>
+          Edição criativa de vídeos verticais
+          para redes sociais.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SÍTIO VÓ DOMINGAS -->
+
+<section class="sitio" id="sitio">
+
+  <div class="container centro">
+
+    <span class="subtitulo">
+      Um lugar para momentos especiais
+    </span>
+
+    <h2>🌿 Venha conhecer o Sítio Vó Domingas</h2>
+
+    <p class="descricao">
+      Em meio à natureza, o Sítio Vó Domingas
+      é um espaço acolhedor para reunir
+      família e amigos, aproveitar bons
+      momentos e criar memórias especiais.
     </p>
 
-    <h3>Conheça o espaço pelas fotos</h3>
+    <h3>Conheça nosso espaço</h3>
+
+    <!-- FOTOS REAIS DO SÍTIO -->
 
     <div class="galeria">
-      <img class="foto" src="sitio1.jpg"
-           alt="Foto do Sítio Vó Domingas">
-      <img class="foto" src="sitio2.jpg"
-           alt="Área do sítio">
-      <img class="foto" src="sitio3.jpg"
-           alt="Ambiente do sítio">
-      <img class="foto" src="sitio4.jpg"
-           alt="Espaço do sítio">
-      <img class="foto" src="sitio5.jpg"
-           alt="Detalhes do sítio">
-      <img class="foto" src="sitio6.jpg"
-           alt="Vista do sítio">
+
+      <div class="foto">
+        <img src="sitio1.jpg"
+             alt="Sítio Vó Domingas">
+      </div>
+
+      <div class="foto">
+        <img src="sitio2.jpg"
+             alt="Área externa do sítio">
+      </div>
+
+      <div class="foto">
+        <img src="sitio3.jpg"
+             alt="Espaço do sítio">
+      </div>
+
+      <div class="foto">
+        <img src="sitio4.jpg"
+             alt="Ambiente do sítio">
+      </div>
+
+      <div class="foto">
+        <img src="sitio5.jpg"
+             alt="Detalhes do sítio">
+      </div>
+
+      <div class="foto">
+        <img src="sitio6.jpg"
+             alt="Vista do Sítio Vó Domingas">
+      </div>
+
     </div>
 
-    <div class="endereco">
-      <h3>📍 Onde estamos</h3>
+    <p class="aviso">
+      Confira mais fotos e novidades no Instagram.
+    </p>
+
+    <a class="botao verde"
+       href="https://www.instagram.com/sitiovodomingas/"
+       target="_blank"
+       rel="noopener noreferrer">
+      📸 Instagram do Sítio
+    </a>
+
+    <!-- LOCALIZAÇÃO -->
+
+    <div class="localizacao">
+
+      <span class="subtitulo">
+        Encontre nosso espaço
+      </span>
+
+      <h2>📍 Nossa localização</h2>
+
       <p>
-        Sítio Vó Domingas<br>
+        <strong>Sítio Vó Domingas</strong><br>
         Estrada Geral da Graciosa<br>
         Graciosa, Biguaçu - SC<br>
         CEP 88169-899
       </p>
+
+      <iframe
+        class="mapa"
+        title="Mapa do Sítio Vó Domingas"
+        src="https://maps.google.com/maps?q=Sitio%20Vo%20Domingas%2C%20Estrada%20Geral%20da%20Graciosa%2C%20Biguacu%2C%20SC&amp;z=15&amp;output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+
+      <p>Toque no botão para abrir o GPS.</p>
+
+      <a class="botao verde"
+         href="https://www.google.com/maps/search/?api=1&amp;query=Sitio%20Vo%20Domingas%2C%20Estrada%20Geral%20da%20Graciosa%2C%20Biguacu%2C%20SC"
+         target="_blank"
+         rel="noopener noreferrer">
+        📍 Abrir localização no GPS
+      </a>
+
     </div>
 
-    <a class="botao verde"
-       target="_blank"
-       rel="noopener noreferrer"
-       href="https://www.google.com/maps/search/?api=1&amp;query=S%C3%ADtio%20V%C3%B3%20Domingas%2C%20Estrada%20Geral%20da%20Graciosa%2C%20Bigua%C3%A7u%20SC">
-       📍 Como chegar - GPS
-    </a>
+  </div>
 
-    <a class="botao"
-       target="_blank"
-       rel="noopener noreferrer"
-       href="https://www.instagram.com/sitiovodomingas/">
-       📸 Instagram do sítio
-    </a>
+</section>
 
-  </section>
-</div>
+<!-- CONTATO BARBOSA VÍDEO -->
 
 <section class="contato" id="contato">
 
-  <h2>Vamos criar algo especial?</h2>
+  <div class="container centro">
 
-  <p>
-    Precisa de vídeos, fotos ou cobertura
-    para o seu evento ou negócio?
-    Entre em contato e solicite seu orçamento.
-  </p>
+    <span class="subtitulo">
+      Vamos trabalhar juntos?
+    </span>
 
-  <a class="botao verde"
-     target="_blank"
-     rel="noopener noreferrer"
-     href="https://wa.me/5548996805977?text=Ol%C3%A1%21%20Vim%20pelo%20site%20Barbosa%20V%C3%ADdeo%20e%20gostaria%20de%20um%20or%C3%A7amento.">
-     💬 Orçamento pelo WhatsApp
-  </a>
+    <h2>Vamos registrar seu próximo evento?</h2>
+
+    <p class="descricao">
+      Seja para divulgar sua empresa,
+      registrar uma festa ou produzir vídeos
+      para suas redes sociais, entre em
+      contato e solicite um orçamento.
+    </p>
+
+    <a class="botao verde"
+       href="https://wa.me/5548996805977?text=Ol%C3%A1%21%20Vim%20pelo%20site%20Barbosa%20V%C3%ADdeo%20e%20quero%20um%20or%C3%A7amento."
+       target="_blank"
+       rel="noopener noreferrer">
+      💬 Solicitar orçamento
+    </a>
+
+  </div>
 
 </section>
 
